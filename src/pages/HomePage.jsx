@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useState } from "react"
-import { Toaster } from "react-hot-toast";
 import { fetchMovies } from "../API/trendingApi";
 import Header from "../components/Header/Header";
 import MovieList from "../components/MovieList/MovieList";
@@ -33,7 +32,6 @@ const HomePage = () => {
                 {isLoading && <Loader />}
                 {error && notyfy('Sorry. Something went wrong.')}
                 {movies.length > 0 && <MovieList movies={movies} />}
-                <Toaster position="top-center" />
             </Conteiner>
         </Section>
     )
