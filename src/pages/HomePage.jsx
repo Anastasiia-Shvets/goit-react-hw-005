@@ -4,6 +4,7 @@ import { Toaster } from "react-hot-toast";
 import { fetchMovies } from "../API/trendingApi";
 import Header from "../components/Header/Header";
 import MovieList from "../components/MovieList/MovieList";
+import Loader from "../components/Loader/Loader";
 
 const HomePage = () => {
     const [movies, setMovies] = useState([]);
@@ -26,16 +27,14 @@ const HomePage = () => {
         fetchData()
     }, []);
     return (
-        <Section>
-            <Conteiner>
+            <>
                 <Header />
                 <h1>Trendihg today</h1>
                 {isLoading && <Loader />}
                 {error && notyfy('Sorry. Something went wrong.')}
-                {movies.length > 0 && <MovieList movies={movies} />}
+                {movies && <MovieList movies={movies} />}
                 <Toaster position="top-center" />
-            </Conteiner>
-        </Section>
+            </>
     )
 
 }

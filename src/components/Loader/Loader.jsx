@@ -1,15 +1,13 @@
-import { Triangle } from 'react-loader-spinner';
+import { FallingLines } from 'react-loader-spinner'
+
 const Loader = () => {
     return (
         < div style={{ textAlign: 'center', marginTop: '20px' }}>
-            <Triangle
-                visible={true}
-                height="80"
-                width="80"
+            <FallingLines
                 color="#4fa94d"
-                ariaLabel="triangle-loading"
-                wrapperStyle={{}}
-                wrapperClass=""
+                width="100"
+                visible={true}
+                ariaLabel="falling-circles-loading"
             />
         </div>
     )

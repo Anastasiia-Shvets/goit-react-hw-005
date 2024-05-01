@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom"
-
+import styles from './Header.module.css'
 
 const Header = () => {
     return (
-        <header>
-            <div>
+        <header className={styles.header}>
+            <div className={styles.wrapper}>
                 <nav>
-                    <ul>
+                    <ul className={styles.nav}>
                         <li>
                             <NavLink
                                 to='/'

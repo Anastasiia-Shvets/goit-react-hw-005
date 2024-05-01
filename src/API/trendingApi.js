@@ -1,4 +1,4 @@
-
+import axios from 'axios'
 
 const trendingUrl = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
 
@@ -8,10 +8,10 @@ const options = {
     }
 };
 
- export const fetchMovies = async () => {
+export const fetchMovies = async () => {
     try {
         const response = await axios.get(trendingUrl, options);
-        console.log(response.data);
+        console.log(response.data.results);
     } catch (error) {
         console.error(error);
     }
