@@ -12,21 +12,21 @@ function App() {
 
   return (
     <>
-        <nav>
-          <Link to='/'>Home</Link>
-          <Link to='/movies'>Movies</Link>
+      <nav>
+        <Link to='/'>Home</Link>
+        <Link to='/movies'>Movies</Link>
         <Link to='/movies/:movieId'>Movie details</Link>
         <Link to='*'>NotFoundPage</Link>
-        </nav>
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/movies' element={<MoviesPage />} />
-          <Route path='/movies/:movieId' element={<MovieDetailsPage />}>
-            <Route path='/movies/:movieId/cast' element={<MovieCast />} />
-            <Route path='/movies/:movieId/reviews' element={<MovieReviews />} />
-          </Route>
-          <Route path='*' element={<NotFoundPage />} />
-        </Routes>
+      </nav>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/movies' element={<MoviesPage />} />
+        <Route path='/movies/:movieId' element={<MovieDetailsPage />}>
+          <Route path='/movies/:movieId/cast' element={<MovieCast />} />
+          <Route path='/movies/:movieId/reviews' element={<MovieReviews />} />
+        </Route>
+        <Route path='*' element={<NotFoundPage />} />
+      </Routes>
     </>
   )
 }
