@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react"
-// import { Toaster } from "react-hot-toast";
-// import MovieList from "../components/MovieList/MovieList";
+import { Toaster } from "react-hot-toast";
 import { fetchMovies } from "../API/trendingApi";
 import Header from "../components/Header/Header";
 import MovieList from "../components/MovieList/MovieList";
@@ -17,6 +16,7 @@ const HomePage = () => {
             try {
                 const data = await fetchMovies()
                 console.log(data);
+                setMovies(data);
             } catch (error) {
                 setError(error);
             } finally {
