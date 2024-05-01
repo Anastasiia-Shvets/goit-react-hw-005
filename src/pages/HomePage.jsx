@@ -27,8 +27,8 @@ const HomePage = () => {
     }, []);
     return (
         <Section>
-            <Header />
             <Conteiner>
+                <Header />
                 <h1>Trendihg today</h1>
                 {isLoading && <Loader />}
                 {error && notyfy('Sorry. Something went wrong.')}
