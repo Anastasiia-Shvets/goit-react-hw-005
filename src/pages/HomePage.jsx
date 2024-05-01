@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react"
 import { Toaster } from "react-hot-toast";
 import { fetchMovies } from "../API/trendingApi";
+
 import Header from "../components/Header/Header";
 import MovieList from "../components/MovieList/MovieList";
 import Loader from "../components/Loader/Loader";
@@ -16,8 +17,8 @@ const HomePage = () => {
             setIsLoading(true);
             try {
                 const data = await fetchMovies()
-                console.log(data);
-                setMovies(data);
+                console.log(data.results);
+                setMovies(data.results);
             } catch (error) {
                 setError(error);
             } finally {
@@ -27,14 +28,14 @@ const HomePage = () => {
         fetchData()
     }, []);
     return (
-            <>
-                <Header />
-                <h1>Trendihg today</h1>
-                {isLoading && <Loader />}
-                {error && notyfy('Sorry. Something went wrong.')}
-                {movies && <MovieList movies={movies} />}
-                <Toaster position="top-center" />
-            </>
+        <>
+            <Header />
+            <h1>Trendihg today</h1>
+            {isLoading && <Loader />}
+            {error && <p>Sorry. Something went wrong.</p>}
+            {movies.length > 0 && <MovieList movies={movies} />}
+            <Toaster position="top-center" />
+        </>
     )
 
 }
