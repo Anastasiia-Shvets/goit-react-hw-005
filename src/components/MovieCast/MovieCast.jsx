@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { creditsMovie } from '../../API/creditsApi';
 
 const MovieCast = () => {
     const { movieId } = useParams();
@@ -10,11 +11,7 @@ const MovieCast = () => {
 
         const fetchMovieCredits = async () => {
             try {
-                const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits`, {
-                    params: {
-                        api_key: '19e9c4b8192481007639a2f9632cbc71'
-                    }
-                });
+                const response = await creditsMovie()
                 setCast(response.data.cast);
             } catch (error) {
                 console.error(error);
