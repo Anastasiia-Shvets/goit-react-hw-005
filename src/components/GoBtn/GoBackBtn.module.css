@@ -13,3 +13,7 @@
 .link:focus {
     background-color: var(--color-imageBackground);
 }
+
+.btn {
+    display: flex;
+}

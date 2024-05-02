@@ -1,8 +1,6 @@
 import { useState } from "react"
-import Header from "../components/Header/Header"
 import SearchBar from "../components/SearchBar/SearchBar"
 import Loader from "../components/Loader/Loader"
-import { Toaster } from "react-hot-toast"
 import MovieList from "../components/MovieList/MovieList"
 
 const MoviesPage = () => {
@@ -25,12 +23,10 @@ const MoviesPage = () => {
 
     return (
         <>
-            <Header />
             <SearchBar onSubmit={handleSubmit} />
             {isLoading && <Loader />}
             {error && <p>Sorry. Something went wrong.</p>}
             {movies && <MovieList />}
-            <Toaster position="top-center" />
         </>
     )
 }

@@ -28,7 +28,6 @@ const HomePage = () => {
     }, []);
     return (
         <>
-            <Header />
             <h1>Trendihg today</h1>
             {isLoading && <Loader />}
             {error && <p>Sorry. Something went wrong.</p>}
