@@ -1,8 +1,8 @@
 import './App.css'
-import { Suspense, lazy, useState } from 'react'
+import { Suspense, lazy } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import MovieReviews from './components/MovieReviews/MovieReviews'
 import MovieCast from './components/MovieCast/MovieCast'
+import MovieReviews from './components/MovieReviews/MovieReviews'
 
 const HomePage = lazy(() => import('./pages/HomePage'))
 const MoviesPage = lazy(() => import('./pages/MoviesPage'))
