@@ -11,7 +11,7 @@ const options = {
 export const fetchMovies = async () => {
     try {
         const response = await axios.get(trendingUrl, options);
-        console.log(response.data.results);
+        return response.data.results;
     } catch (error) {
         console.error(error);
     }

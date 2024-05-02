@@ -1,5 +1,6 @@
 import { useState } from "react"
 import toast from "react-hot-toast";
+import style from './SearchBar.module.css'
 
 const SearchBar = ({ onSubmit }) => {
     const [query, setQuery] = useState('');
@@ -13,7 +14,7 @@ const SearchBar = ({ onSubmit }) => {
         if (!query.trim()) {
             return toast.error('Please enter correct value.');
         }
-        onSubmit(guery);
+        onSubmit(query);
         setQuery('')
     }
     return (

@@ -1,4 +1,4 @@
 const MovieCast = () => {
-    
+
 }
-export default MovieCast;
+export default MovieCast
