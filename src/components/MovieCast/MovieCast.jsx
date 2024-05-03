@@ -27,14 +27,12 @@ const MovieCast = () => {
 
     return (
         <div>
-            {cast.length > 0 && (
-                <ul>
-                    {cast.map(actor => (
-                        <li key={actor.id}>{actor.name}</li>
-                    ))}
-                </ul>
-            )}
-
+            <h2>Movie Cast</h2>
+            <ul>
+                {cast.map(actor => (
+                    <li key={actor.id}>{actor.name}</li>
+                ))}
+            </ul>
         </div>
     );
 };

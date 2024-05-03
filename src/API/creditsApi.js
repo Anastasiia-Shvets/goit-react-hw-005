@@ -12,6 +12,7 @@ export const creditsMovie = async ({movieId}) => {
     try {
         const creditsUrl = `https://api.themoviedb.org/3/movie/${movieId}/credits`;
         const response = await axios.get(creditsUrl, options);
+        console.log(response.data);
         return response.data.cast;
     } catch (error) {
         console.error(error);
