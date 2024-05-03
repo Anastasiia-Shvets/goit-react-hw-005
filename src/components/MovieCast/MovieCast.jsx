@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { creditsMovie } from '../../API/creditsApi';
 import { useEffect, useState } from 'react';
@@ -11,7 +12,9 @@ const MovieCast = () => {
 
         const fetchMovieCredits = async () => {
             try {
-                const response = await creditsMovie(movieId)
+                const response = await creditsMovie(movieId);
+
+                console.log(response);
                 setCast(response);
             } catch (error) {
                 console.error(error);
@@ -24,11 +27,14 @@ const MovieCast = () => {
 
     return (
         <div>
-            <ul>
-                {cast.map(actor => (
-                    <li key={actor.id}>{actor.name}</li>
-                ))}
-            </ul>
+            {cast.length > 0 && (
+                <ul>
+                    {cast.map(actor => (
+                        <li key={actor.id}>{actor.name}</li>
+                    ))}
+                </ul>
+            )}
+
         </div>
     );
 };
