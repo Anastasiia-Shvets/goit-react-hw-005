@@ -12,9 +12,9 @@ const MovieCast = () => {
 
         const fetchMovieCredits = async () => {
             try {
-                const response = await creditsMovie(movieId);
+                const response = await creditsMovie({movieId});
 
-                console.log(response);
+                console.log(response.data);
                 setCast(response);
             } catch (error) {
                 console.error(error);
