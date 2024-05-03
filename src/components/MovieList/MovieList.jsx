@@ -7,7 +7,9 @@ const MovieList = ({ movies }) => {
         <ul className={style.list}>
             {movies && movies.map((movie) => (
                 <li key={movie.id}>
-                    <NavLink to={`/movies/${movie.id}`} state={{ from: location }}>{movie.title}</NavLink>
+                    <NavLink to={`/movies/${movie.id}`} state={{ from: location }}>{movie.title}
+                        <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} />
+                    </NavLink>
                 </li>
             )
             )}

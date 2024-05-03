@@ -3,7 +3,6 @@ import { useState } from "react"
 import { Toaster } from "react-hot-toast";
 import { fetchMovies } from "../API/trendingApi";
 
-import Header from "../components/Header/Header";
 import MovieList from "../components/MovieList/MovieList";
 import Loader from "../components/Loader/Loader";
 
