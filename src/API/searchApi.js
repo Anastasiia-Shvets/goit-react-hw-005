@@ -11,7 +11,7 @@ const options = {
 export const searchMovie = async (query) => {
     try {
         if (!query) {
-            Error('Please enter value.');
+            alert ('Please enter value.');
         }
 
         const response = await axios.get(searchUrl, options, {
@@ -23,10 +23,9 @@ export const searchMovie = async (query) => {
                 api_key: apiKey
             }
         });
-
-        return response.data.results;
+        console.log(response.data);
+        return response.data;
     } catch (error) {
-        console.error('Error searching for movies:', error);
         Error('Failed to search for movies');
     }
 };

@@ -13,8 +13,6 @@ const MovieCast = () => {
         const fetchMovieCredits = async () => {
             try {
                 const response = await creditsMovie({movieId});
-
-                console.log(response.data);
                 setCast(response);
             } catch (error) {
                 console.error(error);
@@ -30,7 +28,10 @@ const MovieCast = () => {
             <h2>Movie Cast</h2>
             <ul>
                 {cast.map(actor => (
-                    <li key={actor.id}>{actor.name}</li>
+                    <li key={actor.id}>
+                        <img src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`} alt={actor.name} />
+                        {actor.name}
+                    </li>
                 ))}
             </ul>
         </div>
