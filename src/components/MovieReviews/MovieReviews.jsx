@@ -1,18 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { reviewsMovie } from "../../API/reviewsApi ";
+import { reviewsMovie } from "../../API/reviewsApi";
 
 const MovieReviews = () => {
     const { movieId } = useParams();
-    const [reviews, setReviews] = useState();
+    const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-
-
         const fetchReviews = async () => {
             try {
-                const dataReviews = await reviewsMovie();
-                console.log(dataReviews);
+                const dataReviews = await reviewsMovie(movieId);
+                console.log(dataReviews.data);
                 setReviews(dataReviews);
             } catch (error) {
                 Error(error);
@@ -27,7 +25,7 @@ const MovieReviews = () => {
         <div>
             <h2>Movie Reviews</h2>
             <ul>
-                {reviews ? (
+                {reviews.length > 0 ? (
                     reviews.map((review, index) => (
                         <li key={index}>
                             <p>Author: {review.author}</p>
