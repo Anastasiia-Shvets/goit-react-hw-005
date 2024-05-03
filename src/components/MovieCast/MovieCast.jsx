@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { creditsMovie } from '../../API/creditsApi';
+import { useEffect, useState } from 'react';
 
 const MovieCast = () => {
     const { movieId } = useParams();
@@ -10,8 +11,8 @@ const MovieCast = () => {
 
         const fetchMovieCredits = async () => {
             try {
-                const response = await creditsMovie()
-                setCast(response.data.cast);
+                const response = await creditsMovie(movieId)
+                setCast(response);
             } catch (error) {
                 console.error(error);
             }
@@ -23,7 +24,6 @@ const MovieCast = () => {
 
     return (
         <div>
-            <h2>Movie Cast</h2>
             <ul>
                 {cast.map(actor => (
                     <li key={actor.id}>{actor.name}</li>
