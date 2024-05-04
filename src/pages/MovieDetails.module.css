@@ -1,0 +1,36 @@
+.section {
+display: flex;
+}
+
+.img {
+    padding: 15px;
+}
+
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: left;
+}
+
+.list {
+list-style-type: none;
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+}
+
+.item {
+display: flex;
+flex-direction: column;
+}
+
+.titleInform {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.link {
+    display: flex;
+    gap: 25px;
+}

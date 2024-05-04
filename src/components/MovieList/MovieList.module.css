@@ -2,6 +2,23 @@
     list-style-type: none;
         padding-left: 0;
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 25px;
+        margin-bottom: 25px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 15px;
+    background-color: darkslategrey;
+    border-radius: 10px;
+}
+
+.link {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 8px;
+    font-size: 15px;
 }

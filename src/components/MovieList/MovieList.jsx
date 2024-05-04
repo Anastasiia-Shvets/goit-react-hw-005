@@ -6,9 +6,9 @@ const MovieList = ({ movies }) => {
     return (
         <ul className={style.list}>
             {movies && movies.map((movie) => (
-                <li key={movie.id}>
-                    <NavLink to={`/movies/${movie.id}`} state={{ from: location }}>{movie.title}
-                        <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} />
+                <li key={movie.id} className={style.item}>
+                    <NavLink to={`/movies/${movie.id}`} state={{ from: location }} className={style.link}>{movie.title}
+                        <img src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`} alt={movie.title} />
                     </NavLink>
                 </li>
             )

@@ -17,7 +17,6 @@ a {
   font-weight: 500;
   color: #e9e9f4;
   text-decoration: inherit;
-  display: flex;
 }
 a:hover {
   color: #3840d9;
@@ -33,27 +32,6 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-p {
-  display: flex;
-}
-
-ul {
-  list-style-type: none;
-  padding-left: 0;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-li {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin: 12px;
-  padding: 16px;
-  background-color: #213547;
-  border-radius: 10px;
 }
 
 button {
