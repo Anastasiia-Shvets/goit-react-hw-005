@@ -3,46 +3,51 @@ import SearchBar from "../components/SearchBar/SearchBar"
 import Loader from "../components/Loader/Loader"
 import MovieList from "../components/MovieList/MovieList"
 import { Toaster } from "react-hot-toast"
+import { useSearchParams } from "react-router-dom"
+import { searchMovie } from "../API/searchApi"
 
 const MoviesPage = () => {
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
-
+    const [searchParams, setSearchParams] = useSearchParams();
+    const query = searchParams.get('query');
 
     useEffect(() => {
-        const fatchMoviesPage = async (query) => {
+        const fetchMoviesPage = async (query) => {
             setIsLoading(true);
             try {
                 const searchData = await searchMovie(query);
-                console.log(searchData.data);
-                setMovies(searchData.data);
+                setMovies(searchData.data.results);
+                setSearchParams({ query: query });
+                setIsLoading(false);
             } catch (error) {
-                setError(error)
-            } finally {
+                setError(error);
                 setIsLoading(false);
             }
         }
-        fatchMoviesPage();
-    }, [setMovies]);
+        if (query) {
+            fetchMoviesPage(query);
+        }
+    }, [query, setSearchParams]);
 
     const handleSubmit = evt => {
         evt.preventDefault();
         if (!query.trim()) {
-            return ('Please enter correct value.');
+            return alert('Please enter correct value.');
         }
-        onSubmit(query);
-        setMovies('')
-
-        return (
-            <>
-                <SearchBar onSubmit={handleSubmit} />
-                {isLoading && <Loader />}
-                {error && <p>Sorry. Something went wrong.</p>}
-                {movies.length > 0 && <MovieList movies={movies} />}
-                <Toaster position="top-center" />
-            </>
-        )
+        setSearchParams({ query: query });
     }
+
+    return (
+        <>
+            <SearchBar onSubmit={handleSubmit} />
+            {isLoading && <Loader />}
+            {error && <p>Sorry. Something went wrong.</p>}
+            {movies.length > 0 && <MovieList movies={movies} />}
+            <Toaster position="top-center" />
+        </>
+    )
 }
-export default MoviesPage
+
+export default MoviesPage;
