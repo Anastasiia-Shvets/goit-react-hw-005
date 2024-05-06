@@ -8,7 +8,6 @@ const MovieDetails = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = React.useState(null);
     const lastLocation = useLocation();
-    const prevLocation = useRef();
 
     useEffect(() => {
         if (!movieId) return;
@@ -25,23 +24,18 @@ const MovieDetails = () => {
         fetchDetails();
     }, [movieId]);
 
-    useEffect(() => {
-        prevLocation.current = lastLocation;
-    }, [location]);
-
-
     if (!movie) return null;
 
     return (
         <>
-            <GoBackBtn prevLocation={prevLocation.current} />
+            <GoBackBtn lastLocation={lastLocation} />
             <section className={style.section}>
                 <div>
                     {movie.poster_path && (
-                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className={style.img} />
-                )}
+                        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className={style.img} />
+                    )}
                 </div>
-                
+
                 <div className={style.details}>
                     <h2>{movie.title}</h2>
                     <ul className={style.list}>
@@ -61,7 +55,7 @@ const MovieDetails = () => {
                 <div>
                     <h3 className={style.titleInform}>Additional information</h3>
                 </div>
-                
+
                 <div className={style.link}>
                     <Link to='cast'><h2>Cast</h2></Link>
                     <Link to='reviews'><h2>Reviews</h2></Link>
