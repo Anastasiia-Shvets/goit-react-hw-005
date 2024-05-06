@@ -9,7 +9,7 @@ const SearchBar = ({ onSubmit }) => {
         setQuery(evt.target.value);
     }
 
-    const handleSubmit = (evt) => {
+    const handleSubmit = evt => {
         evt.preventDefault();
         if (!query.trim()) {
             return toast.error('Please enter correct value.');
