@@ -5,6 +5,7 @@ import MovieList from "../MovieList/MovieList";
 
 const SearchBar = ({ onSubmit }) => {
     const [query, setQuery] = useState('');
+    
 
     const handleChange = evt => {
         setQuery(evt.target.value);
