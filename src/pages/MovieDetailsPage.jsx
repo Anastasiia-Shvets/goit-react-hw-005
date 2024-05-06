@@ -58,8 +58,8 @@ const MovieDetails = () => {
                 <div className={style.link}>
                     <Link to='cast'><h2>Cast</h2></Link>
                     <Link to='reviews'><h2>Reviews</h2></Link>
-                    <Outlet />
                 </div>
+                <Outlet />
             </div>
         </>
     );
