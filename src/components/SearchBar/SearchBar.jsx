@@ -27,7 +27,7 @@ const SearchBar = ({ onSubmit }) => {
                     type="text"
                     autoComplete="off"
                     autoFocus
-                    placeholder="Search movies"
+                    placeholder="Search movies..."
                     value={query}
                     onChange={handleChange}
                     className={style.input} />

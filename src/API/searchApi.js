@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-const apiKey = '19e9c4b8192481007639a2f9632cbc71';
 const options = {
     headers: {
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxOWU5YzRiODE5MjQ4MTAwNzYzOWEyZjk2MzJjYmM3MSIsInN1YiI6IjY2MmU4NDM3MjRmMmNlMDEyMDJhY2I2ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LAJL0N9fMpcdSromGbS5JlczR_WW-N95FQ2ntMCWyUY'

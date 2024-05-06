@@ -22,6 +22,7 @@ const MoviesPage = () => {
                 console.log(searchData);
                 setMovies(searchData);
                 setIsLoading(false);
+                setSearchParams({ query: query });
             } catch (error) {
                 setError(error);
                 setIsLoading(false);
