@@ -5,7 +5,7 @@ import MovieList from "../MovieList/MovieList";
 
 const SearchBar = ({ onSubmit }) => {
     const [query, setQuery] = useState('');
-    
+    const [search, setSearch] = useState([]);
 
     const handleChange = evt => {
         setQuery(evt.target.value);
@@ -17,7 +17,8 @@ const SearchBar = ({ onSubmit }) => {
             return toast.error('Please enter correct value.');
         }
         onSubmit(query);
-        setQuery('')
+        setQuery('');
+        setSearch(search);
     }
     return (
         <div>
@@ -32,7 +33,11 @@ const SearchBar = ({ onSubmit }) => {
                     className={style.input} />
                 <button type="submit" className={style.btn}>Search</button>
             </form>
-            <MovieList />
+            <div>
+                {query && <MovieList />}
+            </div>
+            
+            
         </div>
     );
 }

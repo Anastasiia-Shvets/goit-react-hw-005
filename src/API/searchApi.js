@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-const searchUrl = 'https://api.themoviedb.org/3/search/movie?query=${query}include_adult=false&language=en-US&page=1';
 const apiKey = '19e9c4b8192481007639a2f9632cbc71';
 const options = {
     headers: {
@@ -9,20 +8,9 @@ const options = {
 };
 
 export const searchMovie = async (query) => {
+    const searchUrl = `https://api.themoviedb.org/3/search/movie?query=${query}include_adult=false&language=en-US&page=1`;
     try {
-        if (!query) {
-            alert ('Please enter value.');
-        }
-
-        const response = await axios.get(searchUrl, options, {
-            params: {
-                query: query,
-                include_adult: false,
-                language: 'en-US',
-                page: 1,
-                api_key: apiKey
-            }
-        });
+        const response = await axios.get(searchUrl, options);
         console.log(response.data.results);
         return response.data.results;
     } catch (error) {
