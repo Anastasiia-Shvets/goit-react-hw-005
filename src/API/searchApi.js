@@ -23,8 +23,8 @@ export const searchMovie = async (query) => {
                 api_key: apiKey
             }
         });
-        console.log(response.data);
-        return response.data;
+        console.log(response.data.results);
+        return response.data.results;
     } catch (error) {
         Error('Failed to search for movies');
     }

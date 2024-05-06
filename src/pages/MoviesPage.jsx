@@ -32,10 +32,6 @@ const MoviesPage = () => {
     }, [query, setSearchParams]);
 
     const handleSubmit = query => {
-        evt.preventDefault();
-        if (!query.trim()) {
-            return alert('Please enter correct value.');
-        }
         setSearchParams({ query: query });
     }
 
