@@ -1,9 +1,11 @@
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import style from "./GoBackBtn.module.css";
 
-const GoBackBtn = ({ path, children }) => {
-    const lastLocation = localStorage.getItem("lastLocation");
+const GoBackBtn = ({ path}) => {
+    // const lastLocation = localStorage.getItem("lastLocation");
+    const location = useLocation()
+    const lastLocation = location.state || '/';
 
     const handleClick = () => {
         const pathToGo = lastLocation ? lastLocation : "/";
@@ -14,7 +16,6 @@ const GoBackBtn = ({ path, children }) => {
         <button className={style.btn} onClick={handleClick}>
             <Link to={path} className={style.link}>
                 Go back
-                {children}
             </Link>
         </button>
     );

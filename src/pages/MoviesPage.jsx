@@ -19,7 +19,6 @@ const MoviesPage = () => {
             setIsLoading(true);
             try {
                 const searchData = await searchMovie(query);
-                console.log(searchData);
                 setMovies(searchData);
                 setIsLoading(false);
                 setSearchParams({ query: query });
@@ -42,7 +41,7 @@ const MoviesPage = () => {
             <SearchBar onSubmit={handleSubmit} />
             {isLoading && <Loader />}
             {error && <p>Sorry. Something went wrong.</p>}
-            {!movies && <p>Sorry. Something went wrong.</p>}
+            {movies.length === 0 && !isLoading && <p>No movies found.</p>}
             {movies.length > 0 && <MovieList movies={movies} />}
             <Toaster position="top-center" />
         </>

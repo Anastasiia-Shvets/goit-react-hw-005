@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import GoBackBtn from '../components/GoBtn/GoBackBtn';
 import { fetchMovieDetails } from '../API/detailsApi';
 import style from './MovieDetails.module.css'
@@ -7,6 +7,8 @@ import style from './MovieDetails.module.css'
 const MovieDetails = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = React.useState(null);
+    const lastLocation = useLocation();
+    const prevLocation = useRef();
 
     useEffect(() => {
         if (!movieId) return;
@@ -23,11 +25,16 @@ const MovieDetails = () => {
         fetchDetails();
     }, [movieId]);
 
+    useEffect(() => {
+        prevLocation.current = lastLocation;
+    }, [location]);
+
+
     if (!movie) return null;
 
     return (
         <>
-            <GoBackBtn />
+            <GoBackBtn prevLocation={prevLocation.current} />
             <section className={style.section}>
                 <div>
                     {movie.poster_path && (
