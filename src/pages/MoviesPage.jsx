@@ -41,6 +41,7 @@ const MoviesPage = () => {
             <SearchBar onSubmit={handleSubmit} />
             {isLoading && <Loader />}
             {error && <p>Sorry. Something went wrong.</p>}
+            {!movies && <p>Sorry. Something went wrong.</p>}
             {movies.length > 0 && <MovieList movies={movies} />}
             <Toaster position="top-center" />
         </>

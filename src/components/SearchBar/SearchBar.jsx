@@ -1,6 +1,7 @@
 import { useState } from "react"
 import toast from "react-hot-toast";
 import style from './SearchBar.module.css'
+import MovieList from "../MovieList/MovieList";
 
 const SearchBar = ({ onSubmit }) => {
     const [query, setQuery] = useState('');
@@ -30,6 +31,7 @@ const SearchBar = ({ onSubmit }) => {
                     className={style.input} />
                 <button type="submit" className={style.btn}>Search</button>
             </form>
+            <MovieList />
         </div>
     );
 }
