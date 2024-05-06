@@ -7,7 +7,8 @@ import style from './MovieDetails.module.css'
 const MovieDetails = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = React.useState(null);
-    const lastLocation = useLocation();
+    const location = useLocation()
+    const lastLocation = useRef(location.state || '/');
 
     useEffect(() => {
         if (!movieId) return;
@@ -28,7 +29,7 @@ const MovieDetails = () => {
 
     return (
         <>
-            <GoBackBtn lastLocation={lastLocation} />
+            <GoBackBtn lastLocation={lastLocation.current} />
             <section className={style.section}>
                 <div>
                     {movie.poster_path && (
